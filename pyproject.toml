@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sono-doppler"
+version = "0.1.0"
+description = "Medical Ultrasound Plane-Wave Delay-and-Sum Beamforming, SVD Clutter Filtering & Vector Flow Color Doppler"
+readme = "README.md"
+authors = [{ name = "ZengLLQ" }]
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "click>=8.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+sono-doppler = "sono_doppler.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
